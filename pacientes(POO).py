@@ -46,10 +46,10 @@ class Sistema:
     def escoger_paciente(self):
         i=1
         for paciente in self.__lista_pacientes:
-            print(str(i)+paciente)
+            print(f'{i}. {paciente}')
             i=i+1
         sel= int(input('escoja su paciente (con el índice): '))
-        pac:Paciente=self.__lista_pacientes(sel-1)
+        pac:Paciente=self.__lista_pacientes[sel-1]
         pac.mostrar_nombre
         pac.mostrar_cedula
         pac.mostrar_edad
@@ -95,6 +95,7 @@ while True:
         #de esta forma mostraría todos los pacientes y al retornar un paciente poder editarlo luego
         
         Salmon.escoger_paciente
+        pac:Paciente=Salmon.escoger_paciente()
         menu2=input('desea editar el paciente?\n1.Sí\n2.No\n--->')
         if menu2=='1':
             menu3=input('1.Servicio\n2.Edad\3.Nombre\n4.Género\n5Salir')
